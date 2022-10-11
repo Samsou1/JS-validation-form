@@ -1,4 +1,11 @@
-function cook(){
+class Recipe {
+  constructor(title, steps){
+    this.title = title;
+    this.steps = steps;
+  }
+}
+
+Recipe.prototype.cook = function(){
   var str = '';
   for(var ingredient of this.steps){
     if(ingredient.length == 4){
@@ -15,15 +22,6 @@ function cook(){
   }
 }
 
-
-class Recipe {
-  constructor(title, steps, cook){
-    this.title = title;
-    this.steps = steps;
-    this.cook = cook;
-  }
-}
-
 steps = [
   [1, "cup", "white flour", "dry"],
   [0.5, "tsp", "baking soda", "wet"],
@@ -37,5 +35,9 @@ steps = [
   [325, 10]
 ];
 
-recipe = new Recipe('cookies', steps, cook);
+
+
+var recipe = new Recipe('cookies', steps);
+console.log(recipe.title);
+console.log(recipe.steps);
 console.log(recipe.cook());
